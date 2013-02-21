@@ -1,0 +1,28 @@
+/*
+  Simple use of indentation, different selectors, and the '&' parent selector
+*/
+
+body
+  color blue
+
+  .float-left
+    float left
+
+  .float-right
+    float right
+
+  .special
+    font-weight bold
+
+  div
+    background-color yellow
+
+    span
+      position relative
+      top 2px
+
+    &.special
+      font-size 20px
+
+    &:hover
+      font-color purple
