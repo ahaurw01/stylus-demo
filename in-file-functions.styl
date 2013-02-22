@@ -1,0 +1,39 @@
+/*
+  Employing functions for programmatic changes
+*/
+
+// Add two values and return the sum
+add(a, b)
+  return a + b
+
+// Add any number of values and return the sum
+fancy-add()
+  sum = 0
+  sum += n for n in arguments
+  return sum
+
+// Give back a color that somehow complements the one given
+complementary-color(color)
+  hsla-color = hsla(color)
+  color-hue = hue(hsla-color) + 30deg
+  color-saturation = saturation(hsla-color)
+  color-lightness = lightness(hsla-color)
+  return hsl(color-hue, color-saturation, color-lightness)
+
+// Some constants
+base-padding = 30px
+extra-padding = 10px
+maybe-when-i-feel-like-it-padding = 5px
+
+
+div
+  display inline-block
+  background-color lightblue
+  padding add(base-padding, extra-padding)
+
+  &.special
+    padding fancy-add(base-padding, extra-padding, maybe-when-i-feel-like-it-padding)
+
+  span
+    background-color complementary-color(@background-color)
+
