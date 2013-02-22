@@ -1,0 +1,33 @@
+/*
+  Let's put it all together. Import functions, mixins, and variables.
+  Get fancy.
+*/
+
+@import "imports/variables"
+@import "imports/mixins-and-functions"
+
+// Now our styles that use the imported goodies
+
+body
+  color default-text-color
+
+div-bg-top = #F9E7E4
+div-bg-bottom = #FAF4F1
+div-bg-top-special = #E14E32
+
+table-bg-color-even = #E19D9D
+table-bg-color-odd = complementary-color(table-bg-color-even)
+
+base-padding = 1em
+
+div
+  display table
+  background-gradient(#F9E7E4, #FAF4F1)
+  padding top-padding right-padding bottom-padding left-padding
+  &.special
+    background-gradient(div-bg-top-special, complementary-color(div-bg-top-special))
+    padding fancy-add(base-padding, base-padding, top-padding) right-padding 0 left-padding
+
+table
+  table-stripe(table-bg-color-even, table-bg-color-odd)
+  color white

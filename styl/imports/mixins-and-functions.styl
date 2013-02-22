@@ -1,0 +1,34 @@
+/*
+  Some mixins and functions to use like a library
+*/
+
+/* mixins */
+// Vendor support
+background-gradient(top-color, bottom-color)
+  background-image linear-gradient(top, top-color 5%, bottom-color 100%)
+  background-image -o-linear-gradient(top, top-color 5%, bottom-color 100%)
+  background-image -moz-linear-gradient(top, top-color 5%, bottom-color 100%)
+  background-image -webkit-linear-gradient(top, top-color 5%, bottom-color 100%)
+
+// For elegance and reusability
+table-stripe(even-color = lightblue, odd-color = white)
+  tr:nth-child(even)
+    background-color even-color
+  tr:nth-child(odd)
+    background-color odd-color
+
+
+/* functions */
+// Add any number of values and return the sum
+fancy-add()
+  sum = 0
+  sum += n for n in arguments
+  return sum
+
+// Give back a color that somehow complements the one given
+complementary-color(color)
+  hsla-color = hsla(color)
+  color-hue = hue(hsla-color) + 30deg
+  color-saturation = saturation(hsla-color)
+  color-lightness = lightness(hsla-color)
+  return hsl(color-hue, color-saturation, color-lightness)
